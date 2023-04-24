@@ -1,0 +1,22 @@
+{
+    "name": "mindbite-wpdocker",
+    "version": "1.0.0",
+    "engines": {
+        "node": "14.*"
+    },
+    "author": {
+        "name": "Patric Nox",
+        "url": "https://github.com/PatricNox"
+    },
+    "config": {
+        "docker_extra_file": "docker-compose.default.yml"
+    },
+    "license": "AGPL3",
+    "scripts": {
+        "db:export": "docker-compose up -d wp-db && docker-compose exec wp-db /apps/db_exporter/db_export.sh",
+        "db:import": "docker-compose up -d wp-db && docker-compose exec wp-db /apps/db_exporter/db_import.sh"
+    },
+    "devDependencies": {
+        "@types/node": "^14.0.13"
+    }
+}
